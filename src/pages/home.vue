@@ -11,14 +11,16 @@
 		</div>
 		<div class="now-playing">
 			<div class="item" v-for='item in nowplay'>
-				<img :src="item.cover.origin" alt="">
-				<div class="desc">
-					<div class="info"> 
-						<h4>{{item.name}}</h4>
-						<p>{{item.cinemaCount}}家影院上映 {{item.watchCount}}人购票</p>
+				<router-link :to="{name:'detail',params:{id:item.id}}">
+					<img :src="item.cover.origin" alt="">
+					<div class="desc">
+						<div class="info"> 
+							<h4>{{item.name}}</h4>
+							<p>{{item.cinemaCount}}家影院上映 {{item.watchCount}}人购票</p>
+						</div>
+						<div class="count">{{item.grade}}</div>
 					</div>
-					<div class="count">{{item.grade}}</div>
-				</div>
+				</router-link>
 			</div>
 			<div class="go-more">
 				更多热映电影

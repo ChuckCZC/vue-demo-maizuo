@@ -21,7 +21,8 @@ const actions = {
 }
 const getters = {
     comConf: state => state,
-    loading: state => state.loading
+    loading: state => state.loading,
+    title: state => state.title,
 }
 const mutations = {
     [types.COM_CONF](state,settings){

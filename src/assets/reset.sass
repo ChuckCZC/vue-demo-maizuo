@@ -39,5 +39,18 @@ a
 
 @import 'common'
 
+html,body
+	height: 100%
+	background: #e1e1e1
 .container
 	padding-top: 50*$px
+.child-view
+	position: absolute
+	width: 100%
+	transition: all .2s cubic-bezier(.55,0,.1,1)
+.slide-left-enter, .slide-right-leave-active
+	opacity: 0
+	transform: translate(30*$px,0)
+.slide-left-leave-active, .slide-right-enter
+	opacity: 0
+	transform: translate(-30*$px 0)

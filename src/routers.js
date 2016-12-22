@@ -16,6 +16,11 @@ const routes = [
                 path:'/home',
                 name:'home',
                 component:require('./pages/home')
+            },
+            {
+                path:'/detail/:id',
+                name:'detail',
+                component:require('./pages/detail')
             }
         ]
     }

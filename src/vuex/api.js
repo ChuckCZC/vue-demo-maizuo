@@ -36,11 +36,23 @@ export default {
      */
     getComingSoon:function(cb){
         axios.get(url + 'film/coming-soon?__t=' + new Date()*1 +'&page=1&count=3').then(function(res){
-			if(res.status >= 200 && res.status <300){
+			if(res.status >= 200 && res.status < 300){
 				cb(res.data)
 			}
 		}).catch((error) => {
 			return Promise.reject(error)
 		})
+    },
+    /**
+     * 根据id获取相关影片信息
+     */
+    getFilmDetail:function(id,cb){
+        axios.get(url + 'film/' + id + '?__t=' + new Date()*1).then(function(res){
+            if(res.status >= 200 && res.status < 300){
+                cb(res.data)
+            }
+        }).catch((error) => {
+            return Promise.reject(error)
+        })
     }
 }
