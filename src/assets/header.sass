@@ -1,0 +1,29 @@
+@import 'common'
+#header
+	background: #282828
+	color: #999
+	position: fixed
+	z-index: 500
+	width: 100%
+	height: 50*$px
+	line-height: 50*$px
+	@include box(justify,center)
+	a
+		display: block
+	.go-menu,.go-mine
+		width: 50*$px
+		text-align: center
+		height: 48*$px
+	.go-menu
+		border-right: 1px solid #222
+		box-shadow: 1px 0 1px #363636
+	.title
+		width: 274*$px
+		font-size: 16*$px
+		@include box(justify,center)
+		a
+			i
+				margin-left: 5*$px
+				font-size: 12*$px
+		p
+			color: #fff

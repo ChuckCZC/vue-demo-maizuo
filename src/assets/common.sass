@@ -1,0 +1,31 @@
+$assetPath : "../img"
+$v : 5
+//px转rem
+$px: 1rem/20
+
+//公共 基础类
+@mixin clearFix
+  &:before
+    content: ""
+    display: table
+  &:after
+    content: ""
+    display: table
+    clear: both
+    overflow: hidden
+  zoom: 1
+.clearfix 
+  @include clearFix
+//box布局
+@mixin box($horizontal: initial, $vertical: initial)
+  display: -webkit-box
+  display: box
+  -webkit-box-pack: $horizontal
+  box-pack: $horizontal
+  -webkit-box-align: $vertical
+  box-align: $vertical
+@mixin nowrap
+  display: block
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis

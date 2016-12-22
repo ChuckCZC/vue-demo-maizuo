@@ -12,6 +12,7 @@
     "axios": "^0.15.3",
     "fastclick": "^1.0.6",
     "vue": "^2.1.0",
+    "vue-awesome-swiper": "^2.2.6",
     "vue-router": "^2.1.1",
     "vue-store": "^0.3.1-moved",
     "vuex": "^2.1.1"
