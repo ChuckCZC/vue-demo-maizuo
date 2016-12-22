@@ -53,6 +53,12 @@ app.use(devMiddleware)
 // compilation error display
 app.use(hotMiddleware)
 
+//跨域兼容
+app.use('/api',proxyMiddleware({
+  target:'http://m.maizuo.com/v4',
+  changeOrigin:true
+}))
+
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))

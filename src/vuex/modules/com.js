@@ -10,7 +10,7 @@ const state = {
     isShare:false,
     title:'',
     isFooter:false,
-    loading:false,
+    loading:0,
     mark:false
 }
 
@@ -28,7 +28,10 @@ const mutations = {
         state = Object.assign(state,settings)
     },
     [types.COM_LOADING_STATUS](state,status){
-        state.loading = status;
+        if(state.loading == 0 && !status){
+            return ;
+        }
+        state.loading = status ? ++state.loading : --state.loading;
     }
 }
 

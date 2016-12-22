@@ -7,7 +7,7 @@
       </transition>
     </div>
     <!--<com-footer v-show="comConf:isFooter" />-->
-    <com-loading v-if='loading' />
+    <com-loading v-show='loading' />
   </div>
 </template>
 <script>
@@ -39,7 +39,7 @@
         return this.$store.getters.comConf
       },
       loading:function(){
-        return this.$store.getters.loading
+        return this.$store.getters.loading > 0 ? true : false ;
       }
     },
     components:{
