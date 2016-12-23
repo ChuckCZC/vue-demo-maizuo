@@ -12,3 +12,5 @@ export const HOME_GET_NOWPLAYING_LIST = 'HOME_GET_NOWPLAYING_LIST' //获取热�
 export const HOME_GET_COMINGSOON_LIST = 'HOME_GET_COMINGSOON_LIST' //获取即将上映电影
 //DETAIL
 export const DETAIL_GET_INFO = 'DETAIL_GET_INFO' //获取影片详情
+//CINEMA
+export const CINEMA_GET_LIST = 'CINEMA_GET_LIST' //获取相关影院

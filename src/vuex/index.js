@@ -7,13 +7,15 @@ import Vuex from 'vuex'
 import com from './modules/com'
 import home from './modules/home'
 import detail from './modules/detail'
+import cinema from './modules/cinema'
 
 Vue.use(Vuex)
 const store = new Vuex.Store({
     modules:{
         com,
         home,
-        detail
+        detail,
+        cinema
     },
     strict:process.env.NODE_ENV !== 'production'
 })

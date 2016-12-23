@@ -12,7 +12,7 @@
 				<p class="p">{{detail.synopsis}}</p>
 			</div>
 		</div>
-		<div class="go-pay">立即购票</div>
+		<router-link :to="{name:'cinema',params:{id:detail.id}}" class="go-pay">立即购票</router-link>
 	</div>
 </template>
 <script>

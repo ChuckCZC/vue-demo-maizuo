@@ -21,6 +21,11 @@ const routes = [
                 path:'/detail/:id',
                 name:'detail',
                 component:require('./pages/detail')
+            },
+            {
+                path:'/cinema/:id',
+                name:'cinema',
+                component:require('./pages/cinema')
             }
         ]
     }

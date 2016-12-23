@@ -54,5 +54,17 @@ export default {
         }).catch((error) => {
             return Promise.reject(error)
         })
+    },
+    /**
+     * 获取相关影院
+     */
+    getCinemaList:function(id,cb){
+        axios.get(url + 'film/' + id + '/cinema?__t=' + new Date()*1).then(function(res){
+            if(res.status >= 200 && res.status < 300){
+                cb(res.data)
+            }
+        }).catch((error) => {
+            return Promise.reject(error)
+        })
     }
 }
