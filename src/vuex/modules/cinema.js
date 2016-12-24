@@ -17,6 +17,7 @@ const actions = {
 }
 const getters = {
     getCinemaList: state => state.list,
+    getDistrict: state => state.district
 }
 
 const mutations = {

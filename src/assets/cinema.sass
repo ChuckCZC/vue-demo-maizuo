@@ -1,0 +1,67 @@
+@import 'common'
+#cinema
+    .item
+        &>.title
+            width: 100%
+            height: 40*$px
+            line-height: 40*$px
+            border-bottom: 1px solid #fff
+            color: #636363
+            font-size: 14*$px
+            padding-left: 15*$px
+        &:last-child
+            .title
+                border-bottom: none
+        .list
+            .shop   
+                background: #fff
+                border-bottom: 1px solid #e1e1e1
+                font-size: 14*$px
+                padding: 15*$px
+                line-height: 180%
+                @include box(justify,start)
+                .desc
+                    width: 300*$px
+                    .title
+                        font-size: 16*$px
+                        span
+                            font-size: 10*$px
+                            display: inline-block
+                            vertical-align: middle
+                            border-radius: 50%
+                            width: 16*$px
+                            height: 16*$px
+                            text-align: center
+                            line-height: 14*$px
+                            color: #fd9c77
+                            border: 1px solid #fd9c77
+                            margin-left: 5*$px
+                        span:last-child
+                            color: #a5c1d5
+                            border: 1px solid #a5c1d5
+                    .tip
+                        padding: 5*$px 10*$px
+                        span
+                            display: inline-block
+                            color: #fff
+                            font-size: 11*$px
+                            padding: 0*$px 4*$px
+                            border-radius: 4*$px
+                            &.sundry
+                                background: #51add0
+                                margin-right: 8*$px
+                            &.discount
+                                background: #ff9658
+                    .area
+                        color: #ccc
+                        font-size: 13*$px
+                        @include nowrap
+                    .extra
+                        color: #ccc
+                        font-size: 13*$px
+                .price
+                    width: 45*$px
+                    color: #fc8637
+                    font-size: 16*$px
+                            
+

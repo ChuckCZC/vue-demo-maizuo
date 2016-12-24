@@ -66,5 +66,18 @@ export default {
         }).catch((error) => {
             return Promise.reject(error)
         })
+    },
+    /**
+     * 根据影片id跟影院id获取相关电影票时段
+     */
+    getScheduleList:function(filmid,cinemaid,cb){
+        // http://m.maizuo.com/v4/api/schedule?__t=1482575127866&film=3410&cinema=199
+        axios.get(url + 'schedule?__t=' + new Date()*1 + '&film=' + filmid + '&cinema=' + cinemaid).then(function(res){
+            if(res.status >= 200 && res.status < 300){
+                cb(res.data)
+            }
+        }).catch((error) => {
+            return Promise.reject(error)
+        })
     }
 }
