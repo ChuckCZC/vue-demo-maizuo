@@ -20,6 +20,7 @@
 		font-size: 13*$px
 		margin: 0 auto
 		margin-bottom: 15*$px
+		display: block
 	.now-playing,.coming-soon
 		padding: 15*$px
 		.item
@@ -32,13 +33,17 @@
 				@include box(justify,center)
 				padding: 5*$px 10*$px
 			.info
-				font-size: 14*$px
+				font-size: 12*$px
+				font-weight: 100
 				p
-					font-size: 12*$px
+					font-size: 10*$px
 					color: #9a9a9a
 			.count
 				color: #f78360
 				font-weight: 500
+			.time
+				font-size: 12*$px
+				color: #f78360
 	.coming-title
 		width: 100%
 		height: 1px 
@@ -50,7 +55,6 @@
 			color: #eee
 			background: #a7a7a7
 			font-size: 14*$px
-			font-weight: 600
 			width: 80*$px
 			height: 22*$px
 			text-align: center

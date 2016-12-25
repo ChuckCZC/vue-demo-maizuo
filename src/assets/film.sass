@@ -1,0 +1,56 @@
+@import 'common'
+#film
+	background: #f9f9f9
+	.tabs
+		margin: 15*$px
+		margin-bottom: 0
+		border-bottom: 1px solid #fe6e00
+		@include box(justify,center)
+		.item
+			width: 50%
+			text-align: center
+			font-size: 16*$px
+			height: 40*$px
+			line-height: 40*$px
+			color: #6a6a6a
+			&.active
+				border-bottom: 3px solid #fe6e00
+				color: #fe6e00
+	.tab-content
+		margin: 15*$px
+		margin-top: 0
+		.now-playing-list,.coming-soon-list
+			.item
+				@include box(justify,start)
+				padding: 15*$px 0
+				// display: block
+				border-bottom: 1px dashed #8e8e8e
+				&:last-child
+					border-bottom: none
+				.avater
+					width: 60*$px
+					margin-right: 15*$px
+					img
+						width: 60*$px
+						height: 82*$px
+						object-fit: contain
+				.info
+					width: 250*$px
+					font-size: 14*$px
+					h3
+						font-weight: 400
+						font-size: 16*$px
+						margin-top: 5*$px
+					p
+						font-size: 13*$px
+						height: 28*$px
+						line-height: 28*$px
+						color: #8e8e8e
+						span
+							color: #8aa2bf
+						.time
+							color: #fe6e00
+				.count
+					width: 50*$px
+					padding-top: 5*$px
+					color: #fe6e00

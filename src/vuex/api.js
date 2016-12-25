@@ -20,7 +20,7 @@ export default {
         })
     },
     /**
-     * 获取热映电影
+     * 获取首页热映电影
      */
     getNowPlaying:function(cb){
 		axios.get(url + 'film/now-playing?_t=' + new Date()*1 +'&page=1&count=5').then(function(res){
@@ -32,10 +32,31 @@ export default {
 		})
     },
     /**
-     * 获取即将上映电影
+     * 获取热映列表
+     */
+    getNowPlayList:function(page,num,cb){
+        axios.get(url + 'film/now-playing?page=' + page + '&count=' + num).then(function(res){
+			if(res.status >= 200 && res.status <300){
+				cb(res.data)
+			}
+		}).catch((error) => {
+			return Promise.reject(error)
+		})
+    },
+    /**
+     * 获取首页即将上映电影
      */
     getComingSoon:function(cb){
         axios.get(url + 'film/coming-soon?__t=' + new Date()*1 +'&page=1&count=3').then(function(res){
+			if(res.status >= 200 && res.status < 300){
+				cb(res.data)
+			}
+		}).catch((error) => {
+			return Promise.reject(error)
+		})
+    },
+    getComingList:function(page,num,cb){
+        axios.get(url + 'film/coming-soon?page=' + page +'&count=' + num).then(function(res){
 			if(res.status >= 200 && res.status < 300){
 				cb(res.data)
 			}

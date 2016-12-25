@@ -29,6 +29,6 @@ if ('addEventListener' in document) {
 Array.prototype.unique = function(str){
 	const seen = new Map()
 	return this.filter((a) => {
-	return !seen.has(a['name']) && seen.set(a['name'], 1)
-		})
+		return !seen.has(a['name']) && seen.set(a['name'], 1)
+	})
 }

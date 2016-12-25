@@ -8,6 +8,7 @@ import com from './modules/com'
 import home from './modules/home'
 import detail from './modules/detail'
 import cinema from './modules/cinema'
+import film from './modules/film'
 
 Vue.use(Vuex)
 const store = new Vuex.Store({
@@ -15,7 +16,8 @@ const store = new Vuex.Store({
         com,
         home,
         detail,
-        cinema
+        cinema,
+        film
     },
     strict:process.env.NODE_ENV !== 'production'
 })

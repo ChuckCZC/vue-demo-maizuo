@@ -22,9 +22,9 @@
 					</div>
 				</router-link>
 			</div>
-			<div class="go-more">
+			<router-link :to="{name:'film',params:{type:'now-playing'}}" class="go-more">
 				更多热映电影
-			</div>
+			</router-link>
 		</div>
 		<div class="coming-title">
 			<div>即将上映</div>
@@ -35,14 +35,13 @@
 				<div class="desc">
 					<div class="info"> 
 						<h4>{{item.name}}</h4>
-						<p>{{item.cinemaCount}}家影院上映 {{item.watchCount}}人购票</p>
 					</div>
-					<div class="count">{{item.grade}}</div>
+					<div class="time">{{item.premiereAt|formatDate}}</div>
 				</div>
 			</div>
-			<div class="go-more">
+			<router-link :to="{name:'film',params:{type:'coming-soon'}}" class="go-more">
 				更多即将上映电影
-			</div>
+			</router-link>
 		</div>
 	</div>
 </template>
@@ -79,8 +78,14 @@
 				return this.$store.getters.getComingSoon
 			}
 		},
-		methods:{
-
+		filters:{
+			formatDate:function(time){
+				let date = new Date(time*1),
+					month = date.getMonth() + 1 > 9 ? date.getMonth() + 1 : '0' + (date.getMonth() + 1) ,
+					day = date.getDate() + 1 > 9 ? date.getDate() + 1 : '0' + (date.getDate() + 1);
+				
+				return `${month}月${day}日上映`
+			}
 		},
 		components:{
 			swiper,swiperSlide
