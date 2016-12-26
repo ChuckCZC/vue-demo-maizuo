@@ -4,7 +4,7 @@
  */
 import axios from 'axios'
 
-var url = '/api/'
+var url = process.env.NODE_ENV !== 'production' ? '/api/' : 'http://m.maizuo.com/v4/api/';
 export default {
     /**
      * 根据请求的时间戳获取banner列表

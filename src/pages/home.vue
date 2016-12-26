@@ -32,6 +32,7 @@
 		</div>
 		<div class="coming-soon">
 			<div class="item" v-for='item in coming'>
+				<router-link :to="{name:'detail',params:{id:item.id}}">
 				<img :src="item.cover.origin" alt="">
 				<div class="desc">
 					<div class="info"> 
@@ -39,6 +40,7 @@
 					</div>
 					<div class="time">{{item.premiereAt|formatDate}}</div>
 				</div>
+				</router-link>
 			</div>
 			<router-link :to="{name:'film',params:{type:'coming-soon'}}" class="go-more">
 				更多即将上映电影
