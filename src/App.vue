@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wrap" v-scroll="showTop">
     <com-header :com="comConf" />
     <div class="container">
       <transition :name="transitionName">
@@ -8,6 +8,7 @@
     </div>
     <!--<com-footer v-show="comConf:isFooter" />-->
     <com-loading v-show='loading' />
+    <div @click="gotop" class="go-top" :class="goTop?'active':''"><i class="icon iconfont icon-top-copy"></i></div>
   </div>
 </template>
 <script>
@@ -19,7 +20,8 @@
   export default {
     data(){
       return {
-        transitionName:'slide-left'
+        transitionName:'slide-left',
+        goTop:false
       }
     },
     created:function(){
@@ -45,6 +47,26 @@
     components:{
       comHeader:Header,
       comLoading:Loading
+    },
+    methods:{
+      showTop:function(){
+        if(document.body.scrollTop>200){
+          this.goTop = true
+        }else{
+          this.goTop = false
+        }
+      },
+      gotop:function(){
+        let timer = setInterval(function(){
+          if(document.body.scrollTop>0){
+            document.body.scrollTop = document.body.scrollTop-50 > 0 ? document.body.scrollTop-10 : 0 ;         
+          }else{
+            clearInterval(timer)
+          }       
+        },1)
+
+        // document.body.scrollTop = 0;
+      }
     }
   }
 </script>

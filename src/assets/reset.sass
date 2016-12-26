@@ -42,10 +42,29 @@ a
 html,body
 	height: 100%
 	background: #e1e1e1
+
+.go-top
+	color: #fff
+	background: rgba(0,0,0,.7)
+	width: 50*$px
+	text-align: center
+	height: 50*$px
+	line-height: 50*$px
+	border-radius: 50%
+	position: fixed
+	z-index: 499
+	bottom: -100*$px
+	right: 20*$px
+	transition: .3s linear
+	&.active
+		bottom: 20*$px
+		transition: .3s linear
+	i
+		font-size: 24*$px
 .container
 	padding-top: 50*$px
 .child-view
-	position: absolute
+	// position: absolute
 	width: 100%
 	transition: all .2s cubic-bezier(.55,0,.1,1)
 .slide-left-enter, .slide-right-leave-active
