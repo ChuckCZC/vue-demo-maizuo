@@ -15,7 +15,7 @@ Vue.directive('scroll',{
       // console.log(document.body.scrollTop,window.innerHeight,el.clientHeight)
       // if(document.body.scrollTop + window.innerHeight >= el.clientHeight){
         let fnc = binding.value;
-        fnc();
+        fnc(el);
       // }
     })
   }

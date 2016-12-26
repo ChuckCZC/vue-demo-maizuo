@@ -1,5 +1,5 @@
 <template>
-	<div id="film">
+	<div id="film" v-scroll="getMore">
 		<div class="tabs">
 			<div class="item" @click="changeTab('now-playing')" :class="type=='now-playing'?'active':''">正在热映</div>
 			<div class="item" @click="changeTab('coming-soon')" :class="type=='coming-soon'?'active':''">即将上映</div>
@@ -44,12 +44,11 @@ require('../assets/film.sass')
 			}
 		},
 		created:function(){
+			document.body.scrollTop = 0;
 			this.type = this.$route.params.type
-			console.log(this.type)
-			if(this.type == 'now-playing'){
+			if(this.type == 'now-playing' && this.nowList.length == 0){
 				this.$store.dispatch('getNowPlayList')
-			}
-			if(this.type == 'coming-soon'){
+			}else if(this.type == 'coming-soon' && this.comingList.length == 0){
 				this.$store.dispatch('getComingList')
 			}
 		},
@@ -70,7 +69,7 @@ require('../assets/film.sass')
 				
 				let arr = ['日','一','二','三','四','五','六']
 				
-				return `${month}月${day}日上映   星期${arr[week]}`
+				return `${month}月${day}日上映 星期${arr[week]}`
 			}
 		},
 		methods:{
@@ -82,9 +81,20 @@ require('../assets/film.sass')
 				this.$router.replace({params:{type:type}})
 				if(this.type == 'now-playing' && this.nowList.length == 0){
 					this.$store.dispatch('getNowPlayList')
-				}
-				if(this.type == 'coming-soon' && this.comingList.length == 0){
+				}else if(this.type == 'coming-soon' && this.comingList.length == 0){
 					this.$store.dispatch('getComingList')
+				}
+			},
+			getMore:function(el){
+				if(document.body.scrollTop + window.innerHeight >= el.clientHeight - 100){
+					//由于路由及自定义滚动指令，故返回时还会记录着滚动要素而使得在其他页面滚动时同时出发此处，
+					//故用this.$route.params.type来进行判断
+					if(this.$route.params.type == 'now-playing'){
+						this.$store.dispatch('getNowPlayList')
+					}else if(this.$route.params.type == 'coming-soon'){
+						this.$store.dispatch('getComingList')
+					}
+					
 				}
 			}
 		}

@@ -34,8 +34,8 @@ export default {
     /**
      * 获取热映列表
      */
-    getNowPlayList:function(page,num,cb){
-        axios.get(url + 'film/now-playing?page=' + page + '&count=' + num).then(function(res){
+    getNowPlayList:function(page,cb){
+        axios.get(url + 'film/now-playing?page=' + page + '&count=10').then(function(res){
 			if(res.status >= 200 && res.status <300){
 				cb(res.data)
 			}
@@ -55,8 +55,8 @@ export default {
 			return Promise.reject(error)
 		})
     },
-    getComingList:function(page,num,cb){
-        axios.get(url + 'film/coming-soon?page=' + page +'&count=' + num).then(function(res){
+    getComingList:function(page,cb){
+        axios.get(url + 'film/coming-soon?page=' + page +'&count=10').then(function(res){
 			if(res.status >= 200 && res.status < 300){
 				cb(res.data)
 			}
