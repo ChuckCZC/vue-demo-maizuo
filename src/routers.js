@@ -38,12 +38,8 @@ const routes = [
 
 const router = new VueRouter({
     routes:routes,
-    linkActiveClass:'active',
     history:true,
-    scrollBehavior (to, from, savedPosition){
-        //return 期望滚动到哪个的位置
-        return {x:0,y:0}
-    }
+    linkActiveClass:'active', //如果有底部导航栏，这个属性可以为被选中的路由增加相应的选中状态class
 });
 
 export default router;

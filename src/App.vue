@@ -2,20 +2,21 @@
   <div class="wrap" v-scroll="showTop">
     <com-header :com="comConf" />
     <div class="container">
-      <transition :name="transitionName">
+      <transition :name="transitionName"> 
         <router-view class="child-view" />
       </transition>
     </div>
-    <!--<com-footer v-show="comConf:isFooter" />-->
     <com-loading v-show='loading' />
+    <com-sidebar />
     <div @click="gotop" class="go-top" :class="goTop?'active':''"><i class="icon iconfont icon-top-copy"></i></div>
   </div>
 </template>
 <script>
   require('./assets/reset.sass')
+  import {mapGetters} from 'vuex'
   import Header from './components/header'
-  // import Footer from './components/footer'
   import Loading from './components/loading'
+  import Sidebar from './components/sidebar'
 
   export default {
     data(){
@@ -36,17 +37,14 @@
         this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left';
       }
     },
-    computed:{
-      comConf:function(){
-        return this.$store.getters.comConf
-      },
-      loading:function(){
-        return this.$store.getters.loading > 0 ? true : false ;
-      }
-    },
+    computed:mapGetters({
+      comConf:'comConf',
+      loading:'loading'
+    }),
     components:{
       comHeader:Header,
-      comLoading:Loading
+      comLoading:Loading,
+      comSidebar:Sidebar
     },
     methods:{
       showTop:function(){
@@ -56,6 +54,7 @@
           this.goTop = false
         }
       },
+      //返回顶部
       gotop:function(){
         let speed = 10;
         let timer = setInterval(function(){

@@ -55,6 +55,9 @@ export default {
 			return Promise.reject(error)
 		})
     },
+    /**
+     * 获取即将上映列表
+     */
     getComingList:function(page,cb){
         axios.get(url + 'film/coming-soon?page=' + page +'&count=10').then(function(res){
 			if(res.status >= 200 && res.status < 300){

@@ -5,7 +5,7 @@
 //公共
 export const COM_LOADING_STATUS = 'COM_LOADING_STATUS'
 export const COM_CONF = 'COM_CONF'
-export const COM_MARK_STATUS = 'COM_MARK_STATUS'
+export const CHANGE_LEFTNAV_STATUS = 'CHANGE_LEFTNAV_STATUS'
 //home
 export const HOME_GET_BANNER_LIST = 'HOME_GET_BANNER_LIST' //获取banner
 export const HOME_GET_NOWPLAYING_LIST = 'HOME_GET_NOWPLAYING_LIST' //获取首页热映电影

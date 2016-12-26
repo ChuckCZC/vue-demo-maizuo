@@ -6,23 +6,29 @@ import * as types from '../types'
  * App通用配置
  */
 const state = {
-    isBack:false,
-    isShare:false,
     title:'',
-    isFooter:false,
     loading:0,
-    mark:false
+    leftNavState:false
+    // isBack:false,
+    // isShare:false,  
+    // isFooter:false, //本程序没有底部导航栏
 }
 
 const actions = {
+    //本程序主要设置标题栏，对于通用程序，则可以设置返回按钮，底部导航栏
     comConf({commit},settings){
         commit(types.COM_CONF,settings)
+    },
+    //左侧导航栏的开关
+    changeLeftNavState({commit},status){
+        commit(types.CHANGE_LEFTNAV_STATUS,status)
     }
 }
 const getters = {
     comConf: state => state,
     loading: state => state.loading,
     title: state => state.title,
+    leftNavState: state => state.leftNavState
 }
 const mutations = {
     [types.COM_CONF](state,settings){
@@ -33,6 +39,9 @@ const mutations = {
             return ;
         }
         state.loading = status ? ++state.loading : --state.loading;
+    },
+    [types.CHANGE_LEFTNAV_STATUS](state,status){
+        state.leftNavState = status
     }
 }
 

@@ -1,5 +1,6 @@
 <template>
 	<div id="home">
+		<!--觉得没必要分离成组件-->
 		<div class="banner">
 			<swiper class="banner-swiper">
 				<swiper-slide class='slide' v-for='item in banner'>
@@ -47,8 +48,17 @@
 </template>
 <script>
 	require('../assets/home.sass')
+	import {mapGetters} from 'vuex'
 	import {swiper,swiperSlide} from 'vue-awesome-swiper'
 	export default {
+		data(){
+			return {
+				swiperOption:{
+					autoplay:3000,
+					autoHeight:true,
+				},
+			}
+		},
 		created:function(){
 			this.$store.commit('COM_CONF',{
 				title:'卖座电影'
@@ -63,26 +73,16 @@
 				this.$store.dispatch('getComingSoon')
 			}
 		},
-		computed:{
-			swiperOption:{
-				autoplay:3000,
-				autoHeight:true,
-			},
-			banner:function(){
-				return this.$store.getters.getBannerList
-			},
-			nowplay:function(){
-				return this.$store.getters.getNowPlaying
-			},
-			coming:function(){
-				return this.$store.getters.getComingSoon
-			}
-		},
+		computed:mapGetters({
+			banner:'getBannerList',
+			nowplay:'getNowPlaying',
+			coming:'getComingSoon'
+		}),
 		filters:{
 			formatDate:function(time){
 				let date = new Date(time*1),
 					month = date.getMonth() + 1 > 9 ? date.getMonth() + 1 : '0' + (date.getMonth() + 1) ,
-					day = date.getDate() + 1 > 9 ? date.getDate() + 1 : '0' + (date.getDate() + 1);
+					day = date.getDate() > 9 ? date.getDate() : '0' + date.getDate();
 				
 				return `${month}月${day}日上映`
 			}

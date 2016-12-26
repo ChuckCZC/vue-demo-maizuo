@@ -26,6 +26,9 @@ if ('addEventListener' in document) {
 	}, false);
 }
 
+/**
+ * 对象数组去重，根据str属性
+ */
 Array.prototype.unique = function(str){
 	const seen = new Map()
 	return this.filter((a) => {

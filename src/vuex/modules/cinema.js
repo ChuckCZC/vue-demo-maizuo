@@ -7,6 +7,7 @@ const state = {
 }
 
 const actions = {
+    //获取相关影院列表
     getCinemaList:function({commit},id){
         commit(types.COM_LOADING_STATUS,true);
         api.getCinemaList(id,function(res){
@@ -22,15 +23,20 @@ const getters = {
 
 const mutations = {
     [types.CINEMA_GET_LIST](state,res){
+        /**
+         * 接口没有的区域影院没有进行区分就返回，故只能前端进行分类
+         * 先将列表遍历一遍，将地区相关归入一个数组
+         * 进行数组去重并按照拼音首字母进行排列
+         * 去重unique()在config/index.js中定义
+         */
         let district = [],_json={};
         for(let item of res.cinemas){
             _json = {
                 name:item.district.name,
                 pinyin:item.district.pinyin
             }
-            district = district.concat(_json)
+            district.push(_json)
         }
-        //去重并按拼音排序
         district = district.unique('name').sort(function(a,b){
             return a.pinyin.localeCompare(b.pinyin.charAt(0))
         });

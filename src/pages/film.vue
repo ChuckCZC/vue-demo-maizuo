@@ -5,42 +5,39 @@
 			<div class="item" @click="changeTab('coming-soon')" :class="type=='coming-soon'?'active':''">即将上映</div>
 		</div>
 		<div class="tab-content">
-			<div class="now-playing-list" v-if="type=='now-playing'">
-				<transition-group tag="div" name="list-complete">
-					<router-link  v-for="item in nowList" :key="item" class="item list-complete-item " :to="{name:'cinema',params:{id:item.id}}">
+			<transition-group tag="div" name="list-complete" class="now-playing-list" v-if="type=='now-playing'">
+				<router-link  v-for="item in nowList" :key="item" class="item list-complete-item " :to="{name:'cinema',params:{id:item.id}}">
+				<div class="avater"><img :src="item.poster.thumbnail" alt=""></div>
+				<div class="info">
+					<h3>{{item.name}}</h3>
+					<p>{{item.intro}}</p>
+					<p>
+						<span>{{item.cinemaCount}}</span>家影院上映&nbsp;&nbsp;&nbsp;&nbsp;
+						<span>{{item.watchCount}}</span>人购票
+					</p>
+				</div>
+				<div class="count">{{item.grade}}</div>
+			</router-link>
+			</transition-group>
+			<transition-group tag="div" class="coming-soon-list" v-if="type=='coming-soon'" name="list-complete">
+				<router-link class="item list-complete-item " v-for="item in comingList" :key="item" :to="{name:'detail',params:{id:item.id}}">
 					<div class="avater"><img :src="item.poster.thumbnail" alt=""></div>
 					<div class="info">
 						<h3>{{item.name}}</h3>
 						<p>{{item.intro}}</p>
 						<p>
-							<span>{{item.cinemaCount}}</span>家影院上映&nbsp;&nbsp;&nbsp;&nbsp;
-							<span>{{item.watchCount}}</span>人购票
+							<span class='time'>{{item.premiereAt|formatDate}}</span>
 						</p>
 					</div>
-					<div class="count">{{item.grade}}</div>
+					<div class="count"></div>
 				</router-link>
-				</transition-group>
-			</div>
-			<div class="coming-soon-list" v-if="type=='coming-soon'">
-				<transition-group tag="div" name="list-complete">
-					<router-link class="item list-complete-item " v-for="item in comingList" :key="item" :to="{name:'detail',params:{id:item.id}}">
-						<div class="avater"><img :src="item.poster.thumbnail" alt=""></div>
-						<div class="info">
-							<h3>{{item.name}}</h3>
-							<p>{{item.intro}}</p>
-							<p>
-								<span class='time'>{{item.premiereAt|formatDate}}</span>
-							</p>
-						</div>
-						<div class="count"></div>
-					</router-link>
-				</transition-group>
-			</div>
+			</transition-group>
 		</div>
 	</div>
 </template>
 <script>
 require('../assets/film.sass')
+import {mapGetters} from 'vuex'
 	export default {
 		data(){
 			return {
@@ -56,14 +53,10 @@ require('../assets/film.sass')
 				this.$store.dispatch('getComingList')
 			}
 		},
-		computed:{
-			nowList:function(){
-				return this.$store.getters.getNowPlayList ;
-			},
-			comingList:function(){
-				return this.$store.getters.getComingList
-			}
-		},
+		computed:mapGetters({
+			nowList:'getNowPlayList',
+			comingList:'getComingList'
+		}),
 		filters:{
 			formatDate:function(time){
 				let date = new Date(time*1),

@@ -17,6 +17,7 @@
 </template>
 <script>
 	require('../assets/detail.sass')
+	import {mapGetters} from 'vuex'
 	export default {
 		created:function(){
 			// if(!this.detail){
@@ -34,11 +35,8 @@
 				return year + '-' + month + '-' + day;
 			}
 		},
-		computed:{
-			detail:function(){
-				return this.$store.getters.getFilmDetail;
-			},
-			
-		}
+		computed:mapGetters({
+			detail:'getFilmDetail'
+		})
 	}
 </script>

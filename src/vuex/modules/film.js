@@ -11,6 +11,8 @@ const state = {
 }
 
 const actions = {
+    //获取热映列表
+    //偷懒没有弄加载更多的效果，故去掉loading
     getNowPlayList:function({commit}){
         if(state.getNowMore){
             // commit(types.COM_LOADING_STATUS,true);
@@ -22,6 +24,7 @@ const actions = {
         }
         
     },
+    //获取即将上映列表
     getComingList:function({commit}){
         if(state.getComingMore){
             // commit(types.COM_LOADING_STATUS,true);
@@ -42,6 +45,7 @@ const mutations = {
     [types.FILM_GET_NOWPLAYING](state,res){
         console.log(state.getNowMore,res.page)
         state.nowPlayingList = state.nowPlayingList.concat(res.films)
+        //根据current跟total的关系判断是否还有下一页
         state.getNowMore = res.page.current<res.page.total ? true : false
         
     },

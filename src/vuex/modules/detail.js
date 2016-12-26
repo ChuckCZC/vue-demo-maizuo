@@ -7,6 +7,7 @@ const state = {
 }
 
 const actions = {
+    //获取影片详情并设置标题
     getFilmDetail:function({commit},id){
         commit(types.COM_LOADING_STATUS,true);
         api.getFilmDetail(id,function(res){
@@ -24,8 +25,6 @@ const getters = {
 
 const mutations = {
     [types.DETAIL_GET_INFO](state,res){
-        // console.log(state)
-        // state.title = res.film.name
         state.detail = res.film
     },
 }

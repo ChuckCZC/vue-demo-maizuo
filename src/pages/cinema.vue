@@ -4,6 +4,7 @@
 			<div class="title" @click="changeArea(item.pinyin)">{{item.name}}</div>
 			<div class="list" v-if='pinyin == item.pinyin'>
 				<div class="shop" v-for="shop in list" v-if="shop.district.pinyin == item.pinyin">
+					<!--跳回官网的影院列表-->
 					<a :href='"http://m.maizuo.com/v4/?co=maizuo#!/film/" + _id + "/cinema"'>
 						<div class="desc">
 							<div class="title">{{shop.name}} <span>座</span><span v-if="shop.itemTypes.length>3">通</span></div>

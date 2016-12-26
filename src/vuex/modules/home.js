@@ -8,6 +8,7 @@ const state = {
 }
 
 const actions = {
+    //获取banner列表
     getBannerList:function({commit}){
         commit(types.COM_LOADING_STATUS,true);
         api.getBannerList(function(res){
@@ -15,6 +16,7 @@ const actions = {
             commit(types.COM_LOADING_STATUS,false);
         })
     },
+    // 获取热映
     getNowPlaying:function({commit}){
         commit(types.COM_LOADING_STATUS,true)
         api.getNowPlaying(function(res){
@@ -22,6 +24,7 @@ const actions = {
             commit(types.COM_LOADING_STATUS,false)
         })
     },
+    // 获取即将上映
     getComingSoon:function({commit}){
         commit(types.COM_LOADING_STATUS,true)
         api.getComingSoon(function(res){
