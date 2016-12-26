@@ -6,7 +6,8 @@
 		</div>
 		<div class="tab-content">
 			<div class="now-playing-list" v-if="type=='now-playing'">
-				<router-link  v-for="item in nowList" class="item" :to="{name:'cinema',params:{id:item.id}}">
+				<transition-group tag="div" name="list-complete">
+					<router-link  v-for="item in nowList" :key="item" class="item list-complete-item " :to="{name:'cinema',params:{id:item.id}}">
 					<div class="avater"><img :src="item.poster.thumbnail" alt=""></div>
 					<div class="info">
 						<h3>{{item.name}}</h3>
@@ -18,19 +19,22 @@
 					</div>
 					<div class="count">{{item.grade}}</div>
 				</router-link>
+				</transition-group>
 			</div>
 			<div class="coming-soon-list" v-if="type=='coming-soon'">
-				<router-link class="item" v-for="item in comingList" :to="{name:'detail',params:{id:item.id}}">
-					<div class="avater"><img :src="item.poster.thumbnail" alt=""></div>
-					<div class="info">
-						<h3>{{item.name}}</h3>
-						<p>{{item.intro}}</p>
-						<p>
-							<span class='time'>{{item.premiereAt|formatDate}}</span>
-						</p>
-					</div>
-					<div class="count"></div>
-				</router-link>
+				<transition-group tag="div" name="list-complete">
+					<router-link class="item list-complete-item " v-for="item in comingList" :key="item" :to="{name:'detail',params:{id:item.id}}">
+						<div class="avater"><img :src="item.poster.thumbnail" alt=""></div>
+						<div class="info">
+							<h3>{{item.name}}</h3>
+							<p>{{item.intro}}</p>
+							<p>
+								<span class='time'>{{item.premiereAt|formatDate}}</span>
+							</p>
+						</div>
+						<div class="count"></div>
+					</router-link>
+				</transition-group>
 			</div>
 		</div>
 	</div>

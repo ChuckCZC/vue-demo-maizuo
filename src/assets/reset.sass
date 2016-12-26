@@ -73,3 +73,15 @@ html,body
 .slide-left-leave-active, .slide-right-enter
 	opacity: 0
 	transform: translate(-30*$px 0)
+
+.list-complete-item 
+  transition: all .6s
+  display: inline-block
+  margin-right: 10px
+.list-complete-enter, .list-complete-leave-active 
+  opacity: 0
+  transform: translateY(30px)
+
+.list-complete-leave-active 
+  position: absolute
+
