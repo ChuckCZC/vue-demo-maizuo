@@ -1,6 +1,8 @@
 # vue-demo-maizuo
 
 > 使用Vue2.0全家桶仿制[卖座电影](http://m.maizuo.com/v4/?co=maizuo)
+>
+> 仓库：[https://github.com/ChuckCZC/vue-demo-maizuo](https://github.com/ChuckCZC/vue-demo-maizuo)
 
 ## 声明
 
