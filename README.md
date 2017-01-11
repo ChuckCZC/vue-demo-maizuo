@@ -1,5 +1,4 @@
-# vue-demo-maizuo
-
+# Vue2实战：模仿卖座电影
 > 使用Vue2.0全家桶仿制[卖座电影](http://m.maizuo.com/v4/?co=maizuo)
 >
 > 仓库：[https://github.com/ChuckCZC/vue-demo-maizuo](https://github.com/ChuckCZC/vue-demo-maizuo)
@@ -53,7 +52,6 @@ app.use('/api',proxyMiddleware({
 
 ##### 最后，如果该demo对你学习vue有帮助，麻烦给个star，谢谢#####
 
->  交流QQ：822599633
 
 ## Build 
 
