@@ -1,6 +1,5 @@
 /**
  * Create by zechun.chen on 2016/12/22
- * QQ：822599633
  */
 
 import Vue from 'vue'

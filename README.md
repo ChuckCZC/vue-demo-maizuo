@@ -51,6 +51,8 @@ app.use('/api',proxyMiddleware({
 
 ##### 最后，如果该demo对你学习vue有帮助，麻烦给个star，谢谢#####
 
+>  交流QQ：822599633
+
 ## Build 
 
 ``` bash
