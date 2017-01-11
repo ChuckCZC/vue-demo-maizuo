@@ -33,7 +33,23 @@ app.use('/api',proxyMiddleware({
 }))
 ```
 
+## 界面预览
 
+![首页](readme_img/home.png)
+
+![首页](readme_img/home_2.png)
+
+![首页](readme_img/film.png)
+
+![首页](readme_img/detail.png)
+
+![首页](readme_img/cinema.png)
+
+![首页](readme_img/cinema_2.png)
+
+> ps：只是模仿了以上页面，这几个页面感觉已经包括了vue的常用功能了，后面的页面则是跳去卖座电影的官网了；由于只是几个页面，故各个页面没有将相关的子项分离成组件，如果项目庞大，建议分离成组件形式
+
+##### 最后，如果该demo对你学习vue有帮助，麻烦给个star，谢谢#####
 
 ## Build 
 
