@@ -2,7 +2,7 @@
   <div class="wrap" v-scroll="showTop">
     <com-header :com="comConf" />
     <div class="container">
-      <transition :name="transitionName"> 
+      <transition :name="transitionName">
         <router-view class="child-view" />
       </transition>
     </div>
@@ -48,11 +48,10 @@
     },
     methods:{
       showTop:function(){
-        if(document.body.scrollTop>200){
-          this.goTop = true
-        }else{
-          this.goTop = false
-        }
+        //document.body.scrollTop有兼容性问题
+        let sTop = document.body.scrollTop+document.documentElement.scrollTop;
+        //条件判断可以简写为一下方式
+        this.goTop = sTop > 200 ? true : false;
       },
       //返回顶部
       gotop:function(){
@@ -60,10 +59,10 @@
         let timer = setInterval(function(){
           if(document.body.scrollTop>0){
             document.body.scrollTop = document.body.scrollTop-speed > 0 ? document.body.scrollTop-speed : 0 ;
-            speed += 20;      
+            speed += 20;
           }else{
             clearInterval(timer)
-          }       
+          }
         },16)
       }
     }
